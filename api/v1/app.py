@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """This module sets up a flask app and API"""
-from flask import Flask, jsonify
-from flask_cors import CORS
 from models import storage
 from api.v1.views import app_views
 from sys import getenv

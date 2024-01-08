@@ -1,6 +1,12 @@
 #!/usr/bin/python3
-"""Create a variable app_views which is an instance of Blueprint"""
-from flask import Blueprint
-from api.v1.views.index import *
+"""Create a route /status on the object app_views"""
+from api.v1.views.index import app_views
+from flask import jsonify
+from models import storage
 
-app_views = Blueprint('app_views', __name__, url_prefix='/api/v1')
+
+@app_views.route('/status', methods=('GET'))
+def api_status():
+    """ returns a json response for restful api status"""
+    response = ({'status': 'OK'})
+    return jsonify(response)
